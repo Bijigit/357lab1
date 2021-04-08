@@ -5,26 +5,27 @@
 char * readLine(FILE * file);
 
 int main(int argc, char * argv[]){
-    char *name = argv[1];
+    //char *name = argv[1];
     //char name[] = "input.txt";
-    FILE *filep = fopen(name, "r");
+    FILE *filep;// = fopen(name, "r");
+    filep = stdin;
     char *prevLine = NULL;
     char *curLine = NULL;
     curLine = readLine(filep);
     if(curLine != NULL){
-        printf(curLine);
+        printf("%s", curLine);
         prevLine = curLine;
         curLine = readLine(filep);
     }
     while(curLine != NULL){
         if(strcmp(prevLine, curLine) != 0){
-            printf(curLine);
+            printf("%s", curLine);
         }
         free(prevLine);
         prevLine = curLine;
         curLine = readLine(filep);
     }
-    fclose(filep);
+    //fclose(filep);
 
     return 0;
 }
