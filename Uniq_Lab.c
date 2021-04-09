@@ -6,9 +6,9 @@ char * readLine(FILE * file);
 
 int main(int argc, char * argv[]){
     //char *name = argv[1];
-    //char name[] = "input.txt";
-    FILE *filep;// = fopen(name, "r");
-    filep = stdin;
+    char name[] = "input.txt";
+    FILE *filep = fopen(name, "r");
+    //filep = stdin;
     char *prevLine = NULL;
     char *curLine = NULL;
     curLine = readLine(filep);
@@ -25,6 +25,7 @@ int main(int argc, char * argv[]){
         prevLine = curLine;
         curLine = readLine(filep);
     }
+    free(prevLine);
     //fclose(filep);
 
     return 0;
